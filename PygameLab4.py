@@ -15,7 +15,7 @@ blue  = (   0,   0, 255)
 size = [1000, 562]
 screen = pygame.display.set_mode(size)
 
-pygame.display.set_caption('MONKEY SWINGING THROUGH DA JUNGLE')
+pygame.display.set_caption('I LOVE FORTNITE!!!!!')
 
 #Loop until the user clicks the close button.
 done = False
