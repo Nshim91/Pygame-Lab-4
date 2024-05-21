@@ -29,11 +29,11 @@ y = 100
 x2 = 400
 y2 = 200
 
-background_image = pygame.image.load('jungle-pic.jpg').convert()
-peely = pygame.image.load('monkey.jpg').convert()
+background_image = pygame.image.load('grand glacier.jpg').convert()
+peely = pygame.image.load('peely.webp').convert()
 peely = pygame.transform.scale(monkey_image, (200, 100)).convert()
 peely.set_colorkey(black)
-fish_stick = pygame.image.load('banana.png').convert()
+fish_stick = pygame.image.load('fishstick.webp').convert()
 fish_stick = pygame.transform.scale(banana_image, (400, 200)).convert()
 fish_stick.set_colorkey(black)
 
@@ -70,8 +70,8 @@ while done == False:
 
   # --- Screen clearing goes here.
   screen.blit(background_image, [0, 0])
-  screen.blit(monkey_image, [x, y])
-  screen.blit(banana_image, [x2, y2])
+  screen.blit(peely, [x, y])
+  screen.blit(fish_stick, [x2, y2])
 
   # --- Drawing code should go here
 
