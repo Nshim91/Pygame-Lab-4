@@ -30,12 +30,12 @@ x2 = 400
 y2 = 200
 
 background_image = pygame.image.load('jungle-pic.jpg').convert()
-monkey_image = pygame.image.load('monkey.jpg').convert()
-monkey_image = pygame.transform.scale(monkey_image, (200, 100)).convert()
-monkey_image.set_colorkey(black)
-banana_image = pygame.image.load('banana.png').convert()
-banana_image = pygame.transform.scale(banana_image, (400, 200)).convert()
-banana_image.set_colorkey(black)
+peely = pygame.image.load('monkey.jpg').convert()
+peely = pygame.transform.scale(monkey_image, (200, 100)).convert()
+peely.set_colorkey(black)
+fish_stick = pygame.image.load('banana.png').convert()
+fish_stick = pygame.transform.scale(banana_image, (400, 200)).convert()
+fish_stick.set_colorkey(black)
 
 # -------- Main Program Loop -----------
 while done == False:
