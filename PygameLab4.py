@@ -1,60 +1,86 @@
 import pygame
+import math
+import random
 
-# Initialize the game engine
 pygame.init()
 
-# ---------------------------
-# Set window settings (size and name) 
-WIDTH = 700
-HEIGHT = 500
-SIZE = (WIDTH, HEIGHT)
+# Define some colours
+black = (   0,   0,   0)
+white = ( 255, 255, 255)
+red   = ( 255,   0,   0)
+green = (   0, 255,   0)
+blue  = (   0,   0, 255)
 
-screen = pygame.display.set_mode(SIZE)
-pygame.display.set_caption("My game")
-# ---------------------------
+# Set the width and height of the window
+size = [1000, 562]
+screen = pygame.display.set_mode(size)
+
+pygame.display.set_caption('MONKEY SWINGING THROUGH DA JUNGLE')
+
+#Loop until the user clicks the close button.
+done = False
 
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
 
-# ---------------------------
-# Initialize global variables
+x = 200
+y = 100
 
-# --------- Colours ---------
+x2 = 400
+y2 = 200
+
+background_image = pygame.image.load('jungle-pic.jpg').convert()
+monkey_image = pygame.image.load('monkey.jpg').convert()
+monkey_image = pygame.transform.scale(monkey_image, (200, 100)).convert()
+monkey_image.set_colorkey(black)
+banana_image = pygame.image.load('banana.png').convert()
+banana_image = pygame.transform.scale(banana_image, (400, 200)).convert()
+banana_image.set_colorkey(black)
+
+# -------- Main Program Loop -----------
+while done == False:
+  # --- Main event loop
+  for event in pygame.event.get(): # User did something
+    if event.type == pygame.QUIT: # If user clicked close
+      done = True # Flag that we are done so we exit this loop
+
+  # --- Keyboard input goes here
+  keys = pygame.key.get_pressed()
+
+  if keys[pygame.K_a] and x > 0:
+    x -= 3
+  if keys[pygame.K_d] and x < 980:
+    x += 3
+  if keys[pygame.K_w] and y > 0:
+    y -= 3
+  if keys[pygame.K_s] and y < 525:
+    y += 3
+
+  if keys[pygame.K_LEFT] and x2 > 0:
+    x2 -= 3
+  if keys[pygame.K_RIGHT] and x2 < 980:
+    x2 += 3
+  if keys[pygame.K_UP] and y2 > 0:
+    y2 -= 3
+  if keys[pygame.K_DOWN] and y2 < 525:
+    y2 += 3
+
+  # --- Game logic should go here
 
 
-# --------- Images ----------
+  # --- Screen clearing goes here.
+  screen.blit(background_image, [0, 0])
+  screen.blit(monkey_image, [x, y])
+  screen.blit(banana_image, [x2, y2])
+
+  # --- Drawing code should go here
 
 
-# -------- Animation --------
+  # --- Update the screen with our drawing commands
+  pygame.display.flip()
 
+  # --- Limit to 60 frames per second
+  clock.tick(60)
 
-# ---------------------------
-
-# ---------------------------
-# Functions
-
-
-# ---------------------------
-
-# --------------- Main program loop ---------------
-running = True
-while running:
-    # ----- EVENT HANDLING -----
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-    
-    # ----- USER INPUTS -----
-
-    # ----- GAME STATE UPDATES -----
-    # All game math and comparisons happen here
-
-    # ----- DRAWING -----
-    screen.fill((255, 255, 255))  # always the first drawing command
-
-    # Must be the last two lines of the game loop
-    pygame.display.flip()
-    clock.tick(30)
-    # ---------------------------
-
+# Close the window and quit.
 pygame.quit()
